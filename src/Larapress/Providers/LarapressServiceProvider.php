@@ -2,6 +2,7 @@
 
 use Illuminate\Foundation\AliasLoader;
 use Illuminate\Support\ServiceProvider;
+use Larapress\Commands\InstallCommand;
 use View;
 
 class LarapressServiceProvider extends ServiceProvider {
@@ -51,6 +52,11 @@ class LarapressServiceProvider extends ServiceProvider {
      */
     public function register()
     {
-        // There's nothing to register here ...
+        $this->app['larapress.commands.install.command'] = $this->app->share(function()
+        {
+            return new InstallCommand;
+        });
+
+        $this->commands('larapress.commands.install.command');
     }
 }
