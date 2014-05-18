@@ -10,7 +10,7 @@ before_script:
   - cd ..
   - composer create --dev larapress-cms/larapress:dev-feature/package larapress
   - rm -rf larapress/vendor/larapress-cms/core
-  - cp core larapress/vendor/larapress-cms/core
+  - cp -rf core larapress/vendor/larapress-cms/core
   - cd larapress
   - php artisan dump-autoload
 
