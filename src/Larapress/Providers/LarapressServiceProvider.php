@@ -7,12 +7,12 @@ use View;
 
 class LarapressServiceProvider extends ServiceProvider {
 
-	/**
-	 * Indicates if loading of the provider is deferred.
-	 *
-	 * @var bool
-	 */
-	protected $defer = false;
+    /**
+     * Indicates if loading of the provider is deferred.
+     *
+     * @var bool
+     */
+    protected $defer = false;
 
     public function boot()
     {
@@ -59,4 +59,5 @@ class LarapressServiceProvider extends ServiceProvider {
 
         $this->commands('larapress.commands.install.command');
     }
+    
 }
