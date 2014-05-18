@@ -7,13 +7,11 @@ php:
   - 5.6
 
 before_script:
+  - cd ..
   - composer create --dev larapress-cms/larapress:dev-feature/package larapress
+  - rm -rf larapress/vendor/larapress-cms/core
+  - cp core larapress/vendor/larapress-cms/core
   - cd larapress
-  - rm -rf vendor/larapress-cms/core
-  - git clone https://github.com/larapress-cms/core.git vendor/larapress-cms/core
   - php artisan dump-autoload
-  - phpunit -c larapress.phpunit.xml --coverage-clover=coverage.clover
-  - wget https://scrutinizer-ci.com/ocular.phar
-  - php ocular.phar code-coverage:upload --format=php-clover coverage.clover
 
 script: phpunit -c larapress.phpunit.xml
