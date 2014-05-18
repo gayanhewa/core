@@ -1,0 +1,16 @@
+language: php
+
+php:
+  - 5.3
+  - 5.4
+  - 5.5
+  - 5.6
+
+before_script:
+  - composer create --dev larapress-cms/larapress:dev-feature/package larapress
+  - cd larapress
+  - phpunit -c larapress.phpunit.xml --coverage-clover=coverage.clover
+  - wget https://scrutinizer-ci.com/ocular.phar
+  - php ocular.phar code-coverage:upload --format=php-clover coverage.clover
+
+script: phpunit -c larapress.phpunit.xml
