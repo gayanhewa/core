@@ -59,5 +59,5 @@ class LarapressServiceProvider extends ServiceProvider {
 
         $this->commands('larapress.commands.install.command');
     }
-    
+
 }
